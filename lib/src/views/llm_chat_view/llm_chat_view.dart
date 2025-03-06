@@ -295,7 +295,7 @@ class _LlmChatViewState extends State<LlmChatView>
   ) async {
     assert(_pendingSttResponse != null);
     setState(() {
-      _initialMessage = ChatMessage.user(response, []);
+      // _initialMessage = ChatMessage.user(response, []);
       _pendingSttResponse = null;
     });
 
