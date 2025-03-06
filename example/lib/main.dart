@@ -30,7 +30,9 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text(App.title)),
         body: LlmChatView(
-          style: darkChatViewStyle(),
+          style: LlmChatViewStyle(
+            chatInputStyle: ChatInputStyle(showAttachment: false)
+          ),
           provider: GeminiProvider(
             model: GenerativeModel(
               model: 'gemini-1.5-flash',

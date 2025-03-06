@@ -279,8 +279,10 @@ class _LlmChatViewState extends State<LlmChatView>
         prompt,
         attachments: attachments,
       ),
-      onUpdate: (text) => response += text,
-      onDone: (error) async => _onSttDone(error, response, file),
+      onUpdate: (_) => setState(() {}),
+      onDone: _onPromptDone,
+      // onUpdate: (text) => response += text,
+      // onDone: (error) async => _onSttDone(error, response, file),
     );
 
     setState(() {});
