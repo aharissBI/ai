@@ -30,7 +30,9 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text(App.title)),
         body: LlmChatView(
+          welcomeMessage: 'hello there',
           style: LlmChatViewStyle(
+            backgroundColor: Colors.black87,
             chatInputStyle: ChatInputStyle(showAttachment: false)
           ),
           provider: GeminiProvider(

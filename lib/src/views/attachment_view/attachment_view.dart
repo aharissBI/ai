@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import '../../providers/interface/attachments.dart';
 import 'file_attatchment_view.dart';
 import 'image_attachment_view.dart';
+import 'url_attatchment_view.dart';
 
 /// A widget that displays an attachment based on its type.
 ///
@@ -29,6 +30,6 @@ class AttachmentView extends StatelessWidget {
   Widget build(BuildContext context) => switch (attachment) {
         (final ImageFileAttachment a) => ImageAttachmentView(a),
         (final FileAttachment a) => FileAttachmentView(a),
-        (LinkAttachment _) => throw Exception('Link attachments not supported'),
+        (LinkAttachment a) => UrlAttachmentView(a),
       };
 }

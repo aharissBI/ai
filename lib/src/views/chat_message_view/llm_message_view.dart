@@ -35,25 +35,13 @@ class LlmMessageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
             flex: 6,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...[
-                  for (final attachment in message.attachments)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 6),
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: SizedBox(
-                          height: 80,
-                          width: 200,
-                          child: AttachmentView(attachment),
-                        ),
-                      ),
-                    ),
-                ],
                 ChatViewModelClient(
                   builder: (context, viewModel, child) {
                     final text = message.text;
@@ -114,6 +102,20 @@ class LlmMessageView extends StatelessWidget {
                     );
                   },
                 ),
+                ...[
+                  for (final attachment in message.attachments)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: SizedBox(
+                          height: 80,
+                          width: 200,
+                          child: AttachmentView(attachment),
+                        ),
+                      ),
+                    ),
+                ],
               ],
             ),
           ),
