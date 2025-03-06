@@ -280,7 +280,7 @@ class _LlmChatViewState extends State<LlmChatView>
         attachments: attachments,
       ),
       onUpdate: (_) => setState(() {}),
-      onDone: (error) async => _onSttDone(error, response, file),
+      onDone: _onPromptDone,
       // onUpdate: (text) => response += text,
       // onDone: (error) async => _onSttDone(error, response, file),
     );
@@ -295,7 +295,7 @@ class _LlmChatViewState extends State<LlmChatView>
   ) async {
     assert(_pendingSttResponse != null);
     setState(() {
-      // _initialMessage = ChatMessage.user(response, []);
+      _initialMessage = ChatMessage.user(response, []);
       _pendingSttResponse = null;
     });
 
