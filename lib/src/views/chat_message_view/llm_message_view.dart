@@ -104,8 +104,7 @@ class LlmMessageView extends StatelessWidget {
                 ),
                 ...[
                   for (final attachment in message.attachments)
-                    Container(
-                      margin: const EdgeInsets.only(left: 28),
+                    Padding(
                       padding: const EdgeInsets.only(bottom: 6),
                       child: Align(
                         alignment: Alignment.topLeft,
