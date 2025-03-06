@@ -9,6 +9,7 @@ import '../../chat_view_model/chat_view_model_client.dart';
 import '../../providers/interface/chat_message.dart';
 import '../../styles/llm_chat_view_style.dart';
 import '../../styles/llm_message_style.dart';
+import '../attachment_view/attachment_view.dart';
 import '../jumping_dots_progress_indicator/jumping_dots_progress_indicator.dart';
 import 'adaptive_copy_text.dart';
 import 'hovering_buttons.dart';
@@ -19,7 +20,7 @@ class LlmMessageView extends StatelessWidget {
   /// Creates an [LlmMessageView].
   ///
   /// The [message] parameter is required and represents the LLM chat message to
-  /// be displayed.
+  /// be displayed.x
   const LlmMessageView(
     this.message, {
     this.isWelcomeMessage = false,
@@ -39,6 +40,20 @@ class LlmMessageView extends StatelessWidget {
             flex: 6,
             child: Column(
               children: [
+                ...[
+                  for (final attachment in message.attachments)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: SizedBox(
+                          height: 80,
+                          width: 200,
+                          child: AttachmentView(attachment),
+                        ),
+                      ),
+                    ),
+                ],
                 ChatViewModelClient(
                   builder: (context, viewModel, child) {
                     final text = message.text;
