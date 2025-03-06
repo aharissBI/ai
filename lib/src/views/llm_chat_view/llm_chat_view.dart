@@ -265,6 +265,7 @@ class _LlmChatViewState extends State<LlmChatView>
     _initialMessage = null;
     _associatedResponse = null;
 
+
     // use the LLM to translate the attached audio to text
     const prompt =
         'translate the attached audio to text; provide the result of that '
@@ -272,6 +273,7 @@ class _LlmChatViewState extends State<LlmChatView>
         'separate the background audio from the foreground audio and only '
         'provide the result of translating the foreground audio.';
     final attachments = [await FileAttachment.fromFile(file)];
+    return _onSendMessage('',attachments, );
 
     var response = '';
     _pendingSttResponse = LlmResponse(
