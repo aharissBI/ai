@@ -7,6 +7,7 @@ import 'package:flutter_ai_toolkit/flutter_ai_toolkit.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 import '../gemini_api_key.dart';
+import 'dark_style.dart';
 
 void main() => runApp(const App());
 
@@ -29,6 +30,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text(App.title)),
         body: LlmChatView(
+          style: darkChatViewStyle(),
           provider: GeminiProvider(
             model: GenerativeModel(
               model: 'gemini-1.5-flash',

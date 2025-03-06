@@ -76,6 +76,7 @@ ChatInputStyle _darkChatInputStyle() {
     ),
     hintText: style.hintText,
     backgroundColor: _invertColor(style.backgroundColor),
+    showAttachment: false
   );
 }
 

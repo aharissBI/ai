@@ -156,7 +156,8 @@ class _ChatInputState extends State<ChatInput> {
                     builder: (context, child) => Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Padding(
+                        if(viewModel.style?.chatInputStyle?.showAttachment ?? true)
+                          Padding(
                           padding: const EdgeInsets.only(bottom: 14),
                           child: AttachmentActionBar(
                             onAttachments: onAttachments,
@@ -167,7 +168,7 @@ class _ChatInputState extends State<ChatInput> {
                             children: [
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: 16,
+                                  left: (viewModel.style?.chatInputStyle?.showAttachment ?? true)?16:0,
                                   right: 16,
                                   top: widget.onCancelEdit != null ? 24 : 8,
                                   bottom: 8,
